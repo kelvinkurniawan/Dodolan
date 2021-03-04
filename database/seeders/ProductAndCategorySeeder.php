@@ -19,10 +19,10 @@ class ProductAndCategorySeeder extends Seeder
 
         $faker = Faker::create('id_ID');
 
-        for($i = 0; $i < 10; $i++){
-            DB::table('product_and_categories')->insert([
+        for($i = 0; $i < 20; $i++){
+            DB::table('category_product')->insert([
                 'product_id' => $faker->numberBetween(1, 10),
-                'category_id' => $faker->numberBetween(1, 10),
+                'category_id' => $faker->numberBetween(1, 5),
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

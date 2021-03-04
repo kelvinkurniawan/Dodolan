@@ -19,7 +19,7 @@ class InventorySeeder extends Seeder
 
         $faker = Faker::create('id_ID');
 
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 20; $i++){
             DB::table('inventories')->insert([
                 'name' => $faker->word,
                 'description' => $faker->sentence,

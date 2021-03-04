@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductSeeder::class,
             ProductAndCategorySeeder::class,
-            ProductAndInventorySeeder::class
+            ProductAndInventorySeeder::class,
+            UsersTableSeeder::class
         ]);
     }
 }

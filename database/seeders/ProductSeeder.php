@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
             DB::table('products')->insert([
                 'name' => $faker->name,
                 'description' => $faker->sentence,
-                'price' => $faker->randomFloat(),
+                'price' => $faker->numberBetween(10000, 50000),
                 'stock' => $faker->randomDigit,
                 'created_by' => 1,
                 'created_at' => now(),
