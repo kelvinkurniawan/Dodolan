@@ -12,53 +12,25 @@
                     <h4 class="card-title"> Product List</h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <th style="width: 15%">
-                                    Name
-                                </th>
-                                <th style="width: 15%">
-                                    Price
-                                </th>
-                                <th style="width: 5%">
-                                    Stock
-                                </th>
-                                <th style="width: 20%">
-                                    Category
-                                </th>
-                                <th style="width: 20%">
-                                    Ingredients
-                                </th>
-                            </thead>
-                            <tbody>
-                                @foreach ($products as $product)
-                                    <tr>
-                                        <td>
-                                            {{ $product->name }}
-                                        </td>
-                                        <td>
-                                            @currency($product->price)
-                                        </td>
-                                        <td>
-                                            {{ $product->stock }}
-                                        </td>
-                                        <td>
-                                            @foreach($product->category as $cat)
-                                                {{ $cat->name }},
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            @foreach($product->inventory as $inv)
-                                                {{ $inv->name }},
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    <livewire:product-table />
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="product-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <livewire:product-form>
             </div>
         </div>
     </div>

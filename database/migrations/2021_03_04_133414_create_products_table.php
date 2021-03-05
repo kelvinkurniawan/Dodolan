@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->double('price');
             $table->integer('stock');
-            $table->boolean('is_deleted')->default(false);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

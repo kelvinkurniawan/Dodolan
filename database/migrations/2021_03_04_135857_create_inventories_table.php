@@ -19,9 +19,9 @@ class CreateInventoriesTable extends Migration
             $table->text('description')->nullable();
             $table->integer('stock');
             $table->string('photo')->nullable();
-            $table->boolean('is_deleted')->default(false);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

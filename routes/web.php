@@ -28,6 +28,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('inventory', InventoryController::class);
     Route::resource('product', ProductController::class);
+    Route::get('getJson', 'App\Http\Controllers\ProductController@getJson')->name('getJson');
     Route::resource('category', CategoryController::class);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
