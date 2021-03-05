@@ -34,15 +34,7 @@
                                 @include('includes.sort-icon', ['field' => 'stock'])
                             </a>
                         </th>
-                        <th style="width: 15%">
-                            Category
-                            @include('includes.sort-icon', ['field' => 'category'])
-                        </th>
-                        <th style="width: 15%">
-                            Ingredients
-                            @include('includes.sort-icon', ['field' => 'inventory'])
-                        </th>
-                        <th style="width: 15%">
+                        <th style="width: 15%; text-align:center">
                             Action
                         </th>
                     </tr>
@@ -50,20 +42,10 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <td>{{ $product->name }}</td>
+                        <td><a href="{{url('/product/'.$product->id)}}">{{ $product->name }}</a></td>
                         <td>@currency($product->price)</td>
                         <td>{{ $product->stock }}</td>
-                        <td>
-                            @foreach($product->category as $cat)
-                                {{ $cat->name }},
-                            @endforeach
-                        </td>
-                        <td>
-                            @foreach($product->inventory as $inv)
-                                {{ $inv->name }},
-                            @endforeach
-                        </td>
-                        <td>
+                        <td style="text-align: center">
                             <button class="btn btn-sm btn-dark" wire:click="$emitTo('product-form', 'triggerEdit', {{ $product }})">
                                 Edit
                             </button>

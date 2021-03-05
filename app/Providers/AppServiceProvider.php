@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ProductAndInventory;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

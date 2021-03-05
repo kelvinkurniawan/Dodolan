@@ -24,6 +24,7 @@ class InventorySeeder extends Seeder
                 'name' => $faker->word,
                 'description' => $faker->sentence,
                 'stock' => $faker->randomDigit,
+                'unit' => $faker->word,
                 'created_by' => 1,
                 'created_at' => now(),
                 'updated_at' => now()

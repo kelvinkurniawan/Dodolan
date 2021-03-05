@@ -17,6 +17,7 @@ class CreateProductAndInventoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('inventory_id');
+            $table->integer('usage');
             $table->timestamps();
         });
     }

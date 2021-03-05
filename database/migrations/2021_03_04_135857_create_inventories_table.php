@@ -18,6 +18,7 @@ class CreateInventoriesTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->integer('stock');
+            $table->string('unit')->nullable();
             $table->string('photo')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

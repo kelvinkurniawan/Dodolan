@@ -23,6 +23,7 @@ class ProductAndInventorySeeder extends Seeder
             DB::table('inventory_product')->insert([
                 'product_id' => $faker->numberBetween(1, 10),
                 'inventory_id' => $faker->numberBetween(1, 20),
+                'usage' => $faker->numberBetween(1, 5),
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

@@ -16,11 +16,7 @@ class ProductController extends Controller
     {
         //
 
-        //return Product::with(['inventory', 'category'])->get();
-
-        $products = Product::with(['inventory', 'category'])->get();
-
-        return view('pages.product', ['products' => $products]);
+        return view('pages.product');
     }
 
     /**
@@ -50,10 +46,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
-        return $product->with(['inventory', 'category'])->get();
+
+
+        return view('pages.singleProduct', ['productId' => $id]);
     }
 
     /**
