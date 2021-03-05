@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Product;
 
-class ProductTable extends Component
+class CategoryTable extends Component
 {
 
     use WithPagination;
@@ -30,18 +30,17 @@ class ProductTable extends Component
 
     public function delete($id)
     {
-        $product = Product::find($id);
-        $product->delete();
+        $category = Category::find($id);
+        $category->delete();
 
-        $this->dispatchBrowserEvent('item-deleted', ['item_name' => $product->name]);
+        $this->dispatchBrowserEvent('item-deleted', ['item_name' => $category->name]);
     }
 
     public function render()
     {
-        return view('livewire.product-table', [
-            'products' => Product
-                ::search($this->search)
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+        return view('livewire.category-table', [
+            'categories' => Category::search($this->search)
+                ->orderBy($this->sortField,  $this->sortAsc ? 'asc' : 'desc')
                 ->simplePaginate(10)
         ]);
     }

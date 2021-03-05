@@ -2,10 +2,10 @@
     <div class="row mb-4">
         <div class="col-md-12 d-flex justify-content-between align-items-center">
             <div class="float-left">
-                <button class="btn btn-success" wire:click="$emit('triggerCreate')">Create New Product</button>
+                <button class="btn btn-success" wire:click="$emit('productCreate')">Create New Product</button>
             </div>
             <div class="float-right">
-                <input wire:model.debounce.800ms="search" class="form-control" type="text" placeholder="Search Users...">
+                <input wire:model.debounce.800ms="search" class="form-control" type="text" placeholder="Search Product...">
             </div>
         </div>
     </div>
@@ -64,11 +64,11 @@
                             @endforeach
                         </td>
                         <td>
-                            <button class="btn btn-sm btn-danger" wire:click="$emit('deleteTriggered', {{ $product->id }}, '{{ $product->name }}')">
-                                Delete
-                            </button>
                             <button class="btn btn-sm btn-dark" wire:click="$emitTo('product-form', 'triggerEdit', {{ $product }})">
                                 Edit
+                            </button>
+                            <button class="btn btn-sm btn-danger" wire:click="$emit('productDelete', {{ $product->id }}, '{{ $product->name }}')">
+                                Delete
                             </button>
                         </td>
                     </tr>

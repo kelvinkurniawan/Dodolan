@@ -1,8 +1,8 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-/*!*********************************!*\
-  !*** ./resources/js/product.js ***!
-  \*********************************/
+/*!*********************************************!*\
+  !*** ./resources/js/livewire_controller.js ***!
+  \*********************************************/
 $(document).ready(function () {
   // Livewire Event
   Livewire.on("productDelete", function (id, name) {
@@ -17,6 +17,19 @@ $(document).ready(function () {
   });
   Livewire.on("productFetched", function (product) {
     $("#product-modal").modal("show");
+  });
+  Livewire.on("categoryDelete", function (id, name) {
+    var proceed = confirm("Are you sure you want to delete ".concat(name));
+
+    if (proceed) {
+      Livewire.emit("delete", id);
+    }
+  });
+  Livewire.on("categoryCreate", function () {
+    $("#category-modal").modal("show");
+  });
+  Livewire.on("categoryFetched", function (product) {
+    $("#category-modal").modal("show");
   }); // Back event
 
   window.addEventListener("item-deleted", function (event) {

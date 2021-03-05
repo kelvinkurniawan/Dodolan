@@ -14,4 +14,4 @@ const mix = require("laravel-mix");
 mix.js("resources/js/app.js", "public/js")
     .vue()
     .sass("resources/sass/app.scss", "public/css")
-    .js("resources/js/product.js", "public/js");
+    .js("resources/js/livewire_controller.js", "public/js");

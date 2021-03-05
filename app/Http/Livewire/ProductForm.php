@@ -40,14 +40,14 @@ class ProductForm extends Component
                     'stock' => $this->stock
                 ]);
 
-            $this->dispatchBrowserEvent('product-saved', ['action' => 'updated', 'product_name' => $this->name]);
+            $this->dispatchBrowserEvent('item-saved', ['action' => 'updated', 'item_name' => $this->name]);
 
         }else{
             Product::create(array_merge($validated, [
                 'created_by' => Auth::id()
             ]));
 
-            $this->dispatchBrowserEvent('product-saved', ['action' => 'created', 'product_name' => $this->name]);
+            $this->dispatchBrowserEvent('item-saved', ['action' => 'created', 'item_name' => $this->name]);
         }
         $this->emitTo('product-table', 'triggerRefresh');
         $this->resetForm();
@@ -70,7 +70,7 @@ class ProductForm extends Component
         $this->price = $product['price'];
         $this->stock = $product['stock'];
 
-        $this->emit('dataFetched', $product);
+        $this->emit('productFetched', $product);
     }
 
 }

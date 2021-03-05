@@ -74,7 +74,7 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('paper') }}/demo/demo.js"></script>
 
-    <script src="/js/product.js"></script>
+    <script src="/js/livewire_controller.js"></script>
 
     @livewireScripts
 
