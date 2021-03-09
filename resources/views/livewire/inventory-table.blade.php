@@ -2,54 +2,58 @@
     <div class="row mb-4">
         <div class="col-md-12 d-flex justify-content-between align-items-center">
             <div class="float-left">
-                <button class="btn btn-success" wire:click="$emit('productCreate')">Create New Product</button>
+                <button class="btn btn-success" wire:click="$emit('inventoryCreate')">Create New Inventory</button>
             </div>
             <div class="float-right">
-                <input wire:model.debounce.800ms="search" class="form-control" type="text" placeholder="Search Product...">
+                <input wire:model.debounce.800ms="search" class="form-control" type="text"
+                    placeholder="Search Inventory...">
             </div>
         </div>
     </div>
 
     <div class="row">
-        @if ($products->count())
+        @if ($inventories->count())
         <div class="col-md-12">
             <table class="table table-responsive">
                 <thead class="text-primary">
                     <tr>
-                        <th style="width: 15%">
+                        <th style="width: 2%">
+                            No.
+                        </th>
+                        <th style="width: 20%">
                             <a wire:click.prevent="sortBy('name')" role="button" href="#">
                                 Name
                                 @include('includes.sort-icon', ['field' => 'name'])
                             </a>
                         </th>
                         <th style="width: 10%">
-                            <a wire:click.prevent="sortBy('price')" role="button" href="#">
-                                Price
-                                @include('includes.sort-icon', ['field' => 'price'])
-                            </a>
-                        </th>
-                        <th style="width: 5%">
                             <a wire:click.prevent="sortBy('stock')" role="button" href="#">
                                 Stock
                                 @include('includes.sort-icon', ['field' => 'stock'])
                             </a>
                         </th>
-                        <th style="width: 15%; text-align:center">
+                        <th style="width: 10%">
+                            Description
+                        </th>
+                        <th style="width: 15%">
                             Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($inventories as $inventory)
                     <tr>
-                        <td><a href="{{url('/product/'.$product->id)}}" data-turbo-action="replace">{{ $product->name }}</a></td>
-                        <td>@currency($product->price)</td>
-                        <td>{{ $product->stock }}</td>
-                        <td style="text-align: center">
-                            <button class="btn btn-sm btn-dark" wire:click="$emitTo('product-form', 'triggerEdit', {{ $product }})">
+                        <td>{{ $loop->iteration + $inventories->firstItem() - 1 }}</td>
+                        <td>{{ $inventory->name }}</td>
+                        <td>{{ $inventory->stock. ' ' .$inventory->unit }}</td>
+                        <td>{{ $inventory->description }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-dark"
+                                wire:click="$emitTo('inventory-form', 'triggerEdit', {{ $inventory }})">
                                 Edit
                             </button>
-                            <button class="btn btn-sm btn-danger" wire:click="$emit('productDelete', {{ $product->id }}, '{{ $product->name }}')">
+                            <button class="btn btn-sm btn-danger"
+                                wire:click="$emit('inventoryDelete', {{ $inventory->id }}, '{{ $inventory->name }}')">
                                 Delete
                             </button>
                         </td>
@@ -69,7 +73,7 @@
 
     <div class="row">
         <div class="col">
-            {{ $products->links() }}
+            {{ $inventories->links() }}
         </div>
     </div>
 </div>

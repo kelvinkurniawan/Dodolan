@@ -15,7 +15,8 @@ class InventoryController extends Controller
     public function index()
     {
         //
-        return Inventory::with('product')->get();
+       // return Inventory::with('product')->get();
+       return view('pages.inventory');
     }
 
     /**

@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.2"
+        "@fortawesome/fontawesome-free": "^5.15.2",
+        "@hotwired/turbo": "^7.0.0-beta.4",
+        "turbolinks": "^5.2.0"
     }
 }
