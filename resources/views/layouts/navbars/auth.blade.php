@@ -17,30 +17,30 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'itemManager' || $elementActive == 'itemManager' ? 'active' : '' }}">
-                <a data-toggle="collapse" aria-expanded="true" href="#laravelExamples">
-                    <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
+            <li class="{{ $elementActive == 'product' || $elementActive == 'inventory' || $elementActive == 'category' ? 'active' : '' }}">
+                <a data-toggle="collapse" aria-expanded="false" aria-controls="menuManagement" href="#menuManagement">
+                    <i class="nc-icon nc-book-bookmark"></i>
                     <p>
-                        {{ __('Laravel examples') }}
+                        {{ __('Management') }}
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse show" id="laravelExamples">
+                <div class="collapse" id="menuManagement">
                     <ul class="nav">
                         <li class="{{ $elementActive == 'product' ? 'active' : '' }}">
                             <a href="{{ route('product') }}">
-                                <span class="sidebar-mini-icon">{{ __('UP') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('P') }}</span>
                                 <span class="sidebar-normal">{{ __(' Product Management ') }}</span>
                             </a>
                         </li>
                         <li class="{{ $elementActive == 'inventory' ? 'active' : '' }}">
                             <a href="{{ route('inventory') }}">
-                                <span class="sidebar-mini-icon">{{ __('U') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('I') }}</span>
                                 <span class="sidebar-normal">{{ __(' Inventory Management ') }}</span>
                             </a>
                         </li><li class="{{ $elementActive == 'category' ? 'active' : '' }}">
                             <a href="{{ route('category') }}">
-                                <span class="sidebar-mini-icon">{{ __('U') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('C') }}</span>
                                 <span class="sidebar-normal">{{ __(' Category Management ') }}</span>
                             </a>
                         </li>
@@ -48,14 +48,14 @@
                 </div>
             </li>
             <li class="{{ $elementActive == 'user' || $elementActive == 'profile' ? 'active' : '' }}">
-                <a data-toggle="collapse" aria-expanded="true" href="#laravelExamples">
+                <a data-toggle="collapse" aria-expanded="false" href="#laravelExamples">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
                     <p>
                             {{ __('Laravel examples') }}
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse show" id="laravelExamples">
+                <div class="collapse" id="laravelExamples">
                     <ul class="nav">
                         <li class="{{ $elementActive == 'profile' ? 'active' : '' }}">
                             <a href="{{ route('profile.edit') }}">

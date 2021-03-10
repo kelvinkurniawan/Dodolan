@@ -9,5 +9,12 @@ class ProductAndInventory extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['product_id', 'inventory_id', 'usage'];
     protected $table = 'inventory_product';
+    protected $maps = [
+        'product_id' => 'productId',
+        'inventory_id' => 'inventoryId',
+        'usage' => 'usage'
+    ];
+
 }

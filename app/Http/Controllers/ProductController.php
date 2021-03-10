@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -12,10 +11,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function setInventory($id){
+        return view('pages.setProductInvetory', ['productId' => $id]);
+    }
+
     public function index()
     {
         //
-
         return view('pages.product');
     }
 
@@ -49,8 +53,6 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-
-
         return view('pages.singleProduct', ['productId' => $id]);
     }
 

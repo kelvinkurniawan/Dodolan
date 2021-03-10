@@ -41,11 +41,6 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- CSS Files -->
     <link href="{{ asset('paper') }}/css/bootstrap.min.css" rel="stylesheet" />
     <link href="{{ asset('paper') }}/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-
-    <link href="{{ asset('paper') }}/demo/demo.css" rel="stylesheet" />
-
-    <script src="/js/app.js"></script>
     @livewireStyles
 </head>
 
@@ -60,13 +55,10 @@ The above copyright notice and this permission notice shall be included in all c
         @include('layouts.page_templates.guest')
     @endguest
 
-    <!--   Core JS Files   -->
-    <script src="{{ asset('paper') }}/js/core/jquery.min.js"></script>
-    <script src="{{ asset('paper') }}/js/core/popper.min.js"></script>
-    <script src="{{ asset('paper') }}/js/core/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="/js/app.js"></script>
+    <!-- Core JS Files -->
     <script src="{{ asset('paper') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
     <script src="{{ asset('paper') }}/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
@@ -74,14 +66,12 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('paper') }}/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 
+    @include('layouts.navbars.fixed-plugin-js')
 
-    <script src="/js/livewire_controller.js"></script>
     @livewireScripts
-
 
     @stack('scripts')
 
-    @include('layouts.navbars.fixed-plugin-js')
 </body>
 
 </html>

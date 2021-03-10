@@ -57,6 +57,10 @@ $(document).ready(function () {
     $("#inventory-modal").modal("hide");
     alert("Product ".concat(event.detail.item_name, " was ").concat(event.detail.action, "!"));
   });
+  window.addEventListener("item-added", function (event) {
+    $("#setInventory-modal").modal("hide");
+    alert("Ingredient added!");
+  });
 });
 /******/ })()
 ;

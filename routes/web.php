@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('product', ProductController::class)->name('index', 'product');
     Route::resource('category', CategoryController::class)->name('index', 'category');
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+
+    Route::get('product/inventory/{id}', ['as' => 'product.inventory','uses' => 'App\Http\Controllers\ProductController@setInventory']);
+
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

@@ -5,6 +5,59 @@
  */
 
 require("./bootstrap");
+require("./livewire_controller");
+
+import "jquery-ui/ui/widgets/sortable.js";
+import Swal from "sweetalert2";
+
+$("#usedInventory, #unUsedInventory").sortable({
+    connectWith: ".connectedSortable",
+    receive: function(event, ui) {
+        let id = ui.item.data("id");
+        let itemStatus = ui.item.data("used");
+        let ingredientName = ui.item.data("ingredient");
+        let productId = ui.item.data("product");
+        let ingredientId = ui.item.data("inventory");
+        let target = event.target.id;
+        let modalInventory = $("#setInventory-modal");
+
+        if (itemStatus == false && target == "usedInventory") {
+            modalInventory.modal({
+                backdrop: "static",
+                keyboard: false
+            });
+
+            Livewire.emit("setProductAndInventory", productId, ingredientId);
+
+            modalInventory
+                .find(".modal-title")
+                .text("Add " + ingredientName + " to product ingredient ?");
+
+            $(".closeInventoryModal").on("click", function() {
+                $("#setInventory-modal").modal("hide");
+                $(ui.sender).sortable("cancel");
+            });
+        }
+
+        if (itemStatus == true && target == "unUsedInventory") {
+            Swal.fire({
+                icon: "warning",
+                text: "Are you sure want to remove this ingredient?",
+                showCancelButton: true,
+                confirmButtonText: "Remove",
+                confirmButtonColor: "#f1926e"
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Livewire.emit("delete", id);
+                }
+
+                if (result.isDismissed) {
+                    $(ui.sender).sortable("cancel");
+                }
+            });
+        }
+    }
+});
 
 //import * as Turbo from "@hotwired/turbo";
 // Enable TurboLinks

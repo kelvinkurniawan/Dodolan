@@ -64,4 +64,9 @@ $(document).ready(function() {
         $("#inventory-modal").modal("hide");
         alert(`Product ${event.detail.item_name} was ${event.detail.action}!`);
     });
+
+    window.addEventListener("item-added", event => {
+        $("#setInventory-modal").modal("hide");
+        alert("Ingredient added!");
+    });
 });
